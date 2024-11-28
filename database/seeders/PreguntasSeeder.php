@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Opcione as Opcion;
+use App\Models\Opcion;
 use App\Models\Pregunta;
 
 
@@ -106,6 +106,15 @@ class PreguntasSeeder extends Seeder
                 'tipo_pregunta' => $pregunta['tipo'],
                 'escala' => $pregunta['escala'],
             ]);
+
+            // Asociar opciones dependiendo del tipo de pregunta
+            if ($pregunta['tipo'] == 'seleccion_simple') {
+                // Solo una opción (rango)
+                $createdPregunta->opciones()->attach(Opcion::whereIn('opcion', $opcionesRango)->pluck('id'));
+            } elseif ($pregunta['tipo'] == 'si_no') {
+                // Solo opciones Si/No
+                $createdPregunta->opciones()->attach(Opcion::whereIn('opcion', $opcionesSiNo)->pluck('id'));
+            }
         }
     }
 }

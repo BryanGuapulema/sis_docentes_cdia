@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Opciones') }}
+            {{ __('opciones') }}
         </h2>
     </x-slot>
 
@@ -34,20 +34,20 @@
                                     </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200 bg-white">
-                                    @foreach ($opciones as $opcione)
+                                    @foreach ($opciones as $opcion)
                                         <tr class="even:bg-gray-50">
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900">{{ ++$i }}</td>
                                             
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $opcione->opcion }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $opcione->valor }}</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $opcion->opcion }}</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $opcion->valor }}</td>
 
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                                                <form action="{{ route('opciones.destroy', $opcione->id) }}" method="POST">
-                                                    <a href="{{ route('opciones.show', $opcione->id) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Show') }}</a>
-                                                    <a href="{{ route('opciones.edit', $opcione->id) }}" class="text-indigo-600 font-bold hover:text-indigo-900  mr-2">{{ __('Edit') }}</a>
+                                                <form action="{{ route('opciones.destroy', $opcion->id) }}" method="POST">
+                                                    <a href="{{ route('opciones.show', $opcion->id) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Show') }}</a>
+                                                    <a href="{{ route('opciones.edit', $opcion->id) }}" class="text-indigo-600 font-bold hover:text-indigo-900  mr-2">{{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{ route('opciones.destroy', $opcione->id) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">{{ __('Delete') }}</a>
+                                                    <a href="{{ route('opciones.destroy', $opcion->id) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">{{ __('Delete') }}</a>
                                                 </form>
                                             </td>
                                         </tr>

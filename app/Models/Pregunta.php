@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Opcion;
 
 /**
  * Class Pregunta
@@ -14,8 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
- * @property EncuestaPreguntum[] $encuestaPreguntas
- * @property PreguntaOpcion[] $preguntaOpcions
+ * @property EncuestaPregunta[] $encuestaPreguntas
+ * @property PreguntaOpcion[] $preguntaOpcion
  * @property Respuesta[] $respuestas
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
@@ -38,7 +39,7 @@ class Pregunta extends Model
      */
     public function encuestaPreguntas()
     {
-        return $this->hasMany(\App\Models\EncuestaPreguntum::class, 'id', 'id_pregunta');
+        return $this->hasMany(\App\Models\EncuestaPregunta::class, 'id', 'id_pregunta');
     }
     
     /**
@@ -57,4 +58,8 @@ class Pregunta extends Model
         return $this->hasMany(\App\Models\Respuesta::class, 'id', 'id_pregunta');
     }
     
+    public function opciones()
+    {
+        return $this->belongsToMany(Opcion::class, 'pregunta_opcion');
+    }
 }

@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Opcione;
+use App\Models\Opcion;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Http\Requests\OpcioneRequest;
+use App\Http\Requests\OpcionRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class OpcioneController extends Controller
+class OpcionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request): View
     {
-        $opciones = Opcione::paginate();
+        $opciones = Opcion::paginate();
 
-        return view('opcione.index', compact('opciones'))
+        return view('opcion.index', compact('opciones'))
             ->with('i', ($request->input('page', 1) - 1) * $opciones->perPage());
     }
 
@@ -27,9 +27,9 @@ class OpcioneController extends Controller
      */
     public function create(): View
     {
-        $opcione = new Opcione();
+        $opcion = new Opcion();
 
-        return view('opcione.create', compact('opcione'));
+        return view('opcion.create', compact('opcion'));
     }
 
     /**
@@ -37,10 +37,10 @@ class OpcioneController extends Controller
      */
     public function store(OpcioneRequest $request): RedirectResponse
     {
-        Opcione::create($request->validated());
+        Opcion::create($request->validated());
 
         return Redirect::route('opciones.index')
-            ->with('success', 'Opcione created successfully.');
+            ->with('success', 'Opcion created successfully.');
     }
 
     /**
@@ -48,9 +48,9 @@ class OpcioneController extends Controller
      */
     public function show($id): View
     {
-        $opcione = Opcione::find($id);
+        $opcione = Opcion::find($id);
 
-        return view('opcione.show', compact('opcione'));
+        return view('opcion.show', compact('opcion'));
     }
 
     /**
@@ -58,27 +58,27 @@ class OpcioneController extends Controller
      */
     public function edit($id): View
     {
-        $opcione = Opcione::find($id);
+        $opcione = Opcion::find($id);
 
-        return view('opcione.edit', compact('opcione'));
+        return view('Opcion.edit', compact('Opcion'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(OpcioneRequest $request, Opcione $opcione): RedirectResponse
+    public function update(OpcionRequest $request, Opcion $Opcion): RedirectResponse
     {
-        $opcione->update($request->validated());
+        $Opcion->update($request->validated());
 
         return Redirect::route('opciones.index')
-            ->with('success', 'Opcione updated successfully');
+            ->with('success', 'Opcion updated successfully');
     }
 
     public function destroy($id): RedirectResponse
     {
-        Opcione::find($id)->delete();
+        Opcion::find($id)->delete();
 
         return Redirect::route('opciones.index')
-            ->with('success', 'Opcione deleted successfully');
+            ->with('success', 'Opcion deleted successfully');
     }
 }

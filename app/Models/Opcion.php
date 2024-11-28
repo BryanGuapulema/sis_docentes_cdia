@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Opcione
+ * Class Opcion
  *
  * @property $id
  * @property $opcion
@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Opcione extends Model
+class Opcion extends Model
 {
     
     protected $perPage = 20;
@@ -33,9 +33,14 @@ class Opcione extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function preguntaOpcions()
+    public function preguntaOpciones()
     {
         return $this->hasMany(\App\Models\PreguntaOpcion::class, 'id', 'opcion_id');
+    }
+
+    public function preguntas()
+    {
+        return $this->belongsToMany(Pregunta::class, 'pregunta_opcion');
     }
     
 }
