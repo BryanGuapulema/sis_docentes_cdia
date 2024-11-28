@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('enunciado');
             $table->enum('tipo_pregunta', ['texto_libre', 'seleccion_simple', 'seleccion_multiple'])->default('seleccion_simple');
-            $table->enum('escala', ['rango', 'likert', 'si_no'])->default('rango'); 
+            $table->enum('escala', ['rango', 'likert', 'si_no'])->nullable();; 
             $table->timestamps();
         });
     }

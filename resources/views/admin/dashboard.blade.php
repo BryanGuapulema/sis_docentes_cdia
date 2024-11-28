@@ -70,6 +70,16 @@
                 </a>
             </div>
 
+            <!-- Tarjeta 6 -->
+            <div class="bg-white border border-gray-300 rounded-lg shadow-sm p-6">
+                <h3 class="text-xl font-semibold mb-4">Opciones</h3>
+                <p class="text-gray-600 mb-4">Gestiona las opciones de las preguntas utilizadas en las encuestas.</p>
+                <a href="{{ route('opciones.index') }}" 
+                    class="inline-flex items-center px-6 py-2 bg-blue-500 text-white border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 ease-in-out">
+                    Preguntas
+                </a>
+            </div>
+
         </div>
     </div>
 </div>
