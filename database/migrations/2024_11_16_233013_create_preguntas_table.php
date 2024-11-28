@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('preguntas', function (Blueprint $table) {
-            
-            $table->id(); // Crea la columna 'id' autoincrementable
-            $table->unsignedBigInteger('id_encuesta')->nullable();
-            $table->text('texto_pregunta');
-            $table->enum('Type', ['short_text', 'multiple_choice', 'single_choice']);
-            $table->foreign('id_encuesta')->references('id')->on('encuestas');
+        Schema::create('preguntas', function (Blueprint $table) {            
+            $table->id();
+            $table->string('enunciado');
+            $table->enum('tipo', ['texto_libre', 'seleccion_simple', 'seleccion_multiple', 'si_no'])
+                  ->default('seleccion_simple');
             $table->timestamps();
 
         });

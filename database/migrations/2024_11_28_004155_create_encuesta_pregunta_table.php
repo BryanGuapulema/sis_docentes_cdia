@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('encuestas', function (Blueprint $table) {
-            
-            $table->id(); // Crea la columna 'id' autoincrementable
-            $table->date('fecha_creacion');
-            $table->enum('estado', ['Pendiente', 'Finalizar']);
-            $table->string('enlace_encuesta', 255);
+        Schema::create('encuesta_pregunta', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('id_encuesta')->constrained('encuestas')->onDelete('cascade'); // Relación con encuestas
+            $table->foreignId('id_pregunta')->constrained('preguntas')->onDelete('cascade'); // Relación con preguntas
             $table->timestamps();
-            
-            
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('encuestas');
+        Schema::dropIfExists('encuesta_pregunta');
     }
 };

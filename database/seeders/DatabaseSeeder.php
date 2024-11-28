@@ -18,5 +18,8 @@ class DatabaseSeeder extends Seeder
 
         // Llamar al seeder para el usuario admin
         $this->call(AdminUserSeeder::class);
+
+        // Llamar al seeder para crear las preguntas
+        $this->call(PreguntasSeeder::class);
     }
 }

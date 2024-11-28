@@ -8,7 +8,11 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\AsignaturaController;
-
+use App\Http\Controllers\EncuestaController;
+use App\Http\Controllers\PreguntaController;
+use App\Http\Controllers\EncuestaPreguntaController;
+use App\Http\Controllers\RespuestaController;
+use App\Http\Controllers\CursoController;
 
 
 Route::get('/', function () {
@@ -52,8 +56,10 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::resource('cursos', App\Http\Controllers\CursoController::class);
+Route::resource('cursos', CursoController::class);
 Route::resource('asignaturas', AsignaturaController::class);
-Route::resource('docentes', App\Http\Controllers\DocenteController::class);
-Route::resource('encuestas', App\Http\Controllers\EncuestaController::class);
-Route::resource('preguntas', App\Http\Controllers\PreguntaController::class);
+Route::resource('docentes', DocenteController::class);
+Route::resource('encuestas', EncuestaController::class);
+Route::resource('preguntas', PreguntaController::class);
+Route::resource('encuesta-pregunta', EncuestaPreguntaController::class);
+Route::resource('respuestas', RespuestaController::class);

@@ -12,15 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('respuestas', function (Blueprint $table) {
-            
-            $table->id(); // Crea la columna 'id' autoincrementable
-            $table->unsignedBigInteger('id_encuesta')->nullable();
-            $table->unsignedBigInteger('id_pregunta')->nullable();
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->id();
+            $table->foreignId('id_encuesta')->constrained('encuestas')->onDelete('cascade');
+            $table->foreignId('id_pregunta')->constrained('preguntas')->onDelete('cascade');
             $table->text('respuesta');
-            $table->foreign('id_encuesta')->references('id')->on('encuestas');
-            $table->foreign('id_pregunta')->references('id')->on('preguntas');
-            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->foreignId('id_usuario')->nullable()->constrained('users')->onDelete('set null');
+            $table->timestamp('fecha_respuesta')->useCurrent(); // Esto automáticamente usa el timestamp actual
             $table->timestamps();
         });
     }

@@ -8,15 +8,18 @@ use Illuminate\Database\Eloquent\Model;
  * Class Encuesta
  *
  * @property $id
- * @property $id_registro_clase
+ * @property $id_asignatura
+ * @property $nombre_encuesta
  * @property $fecha_creacion
- * @property $estado
+ * @property $creado_por
+ * @property $uuid
  * @property $enlace_encuesta
  * @property $created_at
  * @property $updated_at
  *
- * @property Clase $clase
- * @property Pregunta[] $preguntas
+ * @property Docente $docente
+ * @property Asignatura $asignatura
+ * @property EncuestaPregunta[] $encuestaPreguntas
  * @property Respuesta[] $respuestas
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
@@ -31,23 +34,31 @@ class Encuesta extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id_registro_clase', 'fecha_creacion', 'estado', 'enlace_encuesta'];
+    protected $fillable = ['id_asignatura', 'nombre_encuesta', 'fecha_creacion', 'creado_por', 'enlace_encuesta'];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function clase()
+    public function docente()
     {
-        return $this->belongsTo(\App\Models\Clase::class, 'id_registro_clase', 'id');
+        return $this->belongsTo(\App\Models\Docente::class, 'creado_por', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function asignatura()
+    {
+        return $this->belongsTo(\App\Models\Asignatura::class, 'id_asignatura', 'id');
     }
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function preguntas()
+    public function encuestaPreguntas()
     {
-        return $this->hasMany(\App\Models\Pregunta::class, 'id', 'id_encuesta');
+        return $this->hasMany(\App\Models\EncuestaPregunta::class, 'id', 'id_encuesta');
     }
     
     /**

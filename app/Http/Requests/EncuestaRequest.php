@@ -22,8 +22,10 @@ class EncuestaRequest extends FormRequest
     public function rules(): array
     {
         return [
+			'id_asignatura' => 'required',
+			'nombre_encuesta' => 'required|string',
 			'fecha_creacion' => 'required',
-			'estado' => 'required',
+			'creado_por' => 'required',
 			'enlace_encuesta' => 'required|string',
         ];
     }

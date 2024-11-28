@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Model;
  * Class Pregunta
  *
  * @property $id
- * @property $id_encuesta
- * @property $texto_pregunta
- * @property $Type
+ * @property $enunciado
+ * @property $tipo
  * @property $created_at
  * @property $updated_at
  *
- * @property Encuesta $encuesta
+ * @property EncuestaPregunta[] $encuestaPreguntas
  * @property Respuesta[] $respuestas
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
@@ -29,15 +28,15 @@ class Pregunta extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['id_encuesta', 'texto_pregunta', 'Type'];
+    protected $fillable = ['enunciado', 'tipo'];
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function encuesta()
+    public function encuestaPreguntas()
     {
-        return $this->belongsTo(\App\Models\Encuesta::class, 'id_encuesta', 'id');
+        return $this->hasMany(\App\Models\EncuestaPregunta::class, 'id', 'id_pregunta');
     }
     
     /**
