@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/survey/{uuid}', [ResponseController::class, 'store']);
 });
 
+<<<<<<< HEAD
 
 Route::resource('cursos', CursoController::class);
 Route::resource('asignaturas', AsignaturaController::class);
@@ -66,3 +67,9 @@ Route::resource('encuesta-pregunta', EncuestaPreguntaController::class);
 Route::resource('respuestas', RespuestaController::class);
 
 Route::resource('opciones', OpcioneController::class);
+=======
+//CRUDS
+Route::resource('cursos', App\Http\Controllers\CursoController::class);
+Route::resource('asignaturas', AsignaturaController::class);
+Route::resource('docentes', App\Http\Controllers\DocenteController::class);
+>>>>>>> cambiosBD
