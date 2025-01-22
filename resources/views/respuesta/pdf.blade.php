@@ -76,18 +76,18 @@
 </head>
 <body>
 
-    <h1>Resultados de la Encuesta</h1>
+    <h1>Resultados de la encuesta</h1>
     <h3>{{ $encuesta->nombre_encuesta }}</h3>
 
     <!-- Detalles de la Encuesta -->
     <div class="details">
-        <h4>Detalles de la Encuesta</h4>
-        <p><strong>Nombre de la Asignatura:</strong> {{ $encuesta->asignatura->nombre_asignatura ?? 'N/A' }}</p>
-        <p><strong>Nombre Encuesta:</strong> {{ $encuesta->nombre_encuesta }}</p>
+        <h4>Detalles de la encuesta</h4>
+        <p><strong>Nombre de la asignatura:</strong> {{ $encuesta->asignatura->nombre_asignatura ?? 'N/A' }}</p>
+        <p><strong>Nombre encuesta:</strong> {{ $encuesta->nombre_encuesta }}</p>
         <p><strong>Docente:</strong> {{ $encuesta->docente->user->name ?? 'N/A' }}</p>
-        <p><strong>Fecha Creación:</strong> {{ \Carbon\Carbon::parse($encuesta->created_at)->format('d/m/Y') }}</p>
-        <p><strong>Creado Por:</strong> {{ $encuesta->docente->user->name ?? 'N/A' }}</p>
-        <p><strong>Enlace Encuesta:</strong> <a href="{{ $encuesta->enlace_encuesta }}" target="_blank">{{ $encuesta->enlace_encuesta }}</a></p>
+        <p><strong>Fecha de creación:</strong> {{ \Carbon\Carbon::parse($encuesta->created_at)->format('d/m/Y') }}</p>
+        <p><strong>Creado por:</strong> {{ $encuesta->docente->user->name ?? 'N/A' }}</p>
+        <p><strong>Enlace de la encuesta:</strong> <a href="{{ $encuesta->enlace_encuesta }}" target="_blank">{{ $encuesta->enlace_encuesta }}</a></p>
     </div>
 
     <!-- Resultados de la Encuesta -->

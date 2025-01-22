@@ -23,7 +23,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="text-white text-center font-semibold text-xl leading-tight">
-                {{ $respuesta->name ?? __('Mostrar') . " " . __('Respuesta') }}
+                {{ $respuesta->name ?? __('Mostrar') . " " . __('respuesta') }}
             </h2>
         </x-slot>
 
@@ -33,7 +33,7 @@
                     <div class="w-full">
                         <div class="bg-gray-500 rounded-lg p-6 shadow flex flex-col justify-center items-center">
                             <div class="flex items-center justify-between sm:flex-auto">
-                                <h1 class="mt-2 font-semibold text-white">Respuestas de la Encuesta: {{ $encuesta->nombre_encuesta }}</h1>
+                                <h1 class="mt-2 font-semibold text-white">Respuestas de la encuesta: {{ $encuesta->nombre_encuesta }}</h1>
                                 <img src="{{ asset('images/mostrar.svg') }}" alt="Icono de inicio de sesión" class="h-8 w-8 ml-4">
                             </div>
                         </div>

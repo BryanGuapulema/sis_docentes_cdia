@@ -23,7 +23,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-center text-white leading-tight">
-                {{ __('Encuesta Pregunta') }}
+                {{ __('Preguntas de todas las encuestas') }}
             </h2>
         </x-slot>
 

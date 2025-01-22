@@ -24,7 +24,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-center text-white leading-tight">
-                {{ __('Crear') }} Encuesta
+                {{ __('Crear') }} su encuesta
             </h2>
         </x-slot>
 

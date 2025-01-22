@@ -23,7 +23,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-center text-white leading-tight">
-                {{ __('Preguntas Opciones') }}
+                {{ __('Asignar opciones a preguntas') }}
             </h2>
         </x-slot>
 
@@ -33,7 +33,7 @@
                     <div class="w-full">
                         <div class="bg-gray-500 rounded-lg p-6 shadow flex flex-col justify-center items-center">
                             <div class="flex items-center justify-between sm:flex-auto">
-                                <h1 class="mt-2 font-semibold text-white">Lista de {{ __('Preguntas y Opciones') }}</h1>
+                                <h1 class="mt-2 font-semibold text-white">Lista de {{ __('preguntas y de opciones') }}</h1>
                                 <img src="{{ asset('images/pregunta-opcion.svg') }}" alt="Icono de inicio de sesión" class="h-8 w-8 ml-4">
                             </div>
                         </div>

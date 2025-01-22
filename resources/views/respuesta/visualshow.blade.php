@@ -9,7 +9,7 @@
                     <div class="bg-white shadow-xl sm:rounded-lg p-8 border-t-4 border-blue-500">
                         <div class="flex items-center justify-between mb-6">
             <!-- Título -->
-            <h3 class="text-2xl font-bold text-white-600">Resultados de la Encuesta</h3>
+            <h3 class="text-2xl font-bold text-white-600">Resultados de la encuesta</h3>
             
             <!-- Botón para generar el PDF -->
             <button onclick="generarPDF()" class="flex items-center px-4 py-2 font-bold rounded-md text-white bg-gray-800 hover:bg-gray-700 transition-all duration-300">
