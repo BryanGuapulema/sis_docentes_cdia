@@ -7,6 +7,7 @@
             <h1 class="text-2xl font-bold uppercase text-white tracking-wide">
                 Universidad Nacional de Chimborazo
             </h1>
+            
         </div>
 
         <div class="flex flex-1 justify-end items-center gap-4">

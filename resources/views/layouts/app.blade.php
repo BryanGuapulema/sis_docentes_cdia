@@ -24,6 +24,12 @@
             <!-- Page Heading -->
             @livewire('navigation-menu')
 
+            <a
+                href="{{ route(Auth::user()->hasRole('admin') ? 'admin.dashboard' : (Auth::user()->hasRole('docente') ? 'docente.dashboard' : 'estudiante.dashboard')) }}"
+                class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 transition-all duration-300">
+                Dashboard
+            </a>
+
             @if (isset($header))
                 <header class="bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
